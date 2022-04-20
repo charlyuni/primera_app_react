@@ -1,17 +1,23 @@
+import Contador from './ItemCount';
+
 function ItemListContainer(props) {
 
   const listItems = props.ItemsProd.map((element) =>
 
   <div classNameName="card w-96 bg-base-100 shadow-xl ">
-    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
-        <div className="card-body">
-            <h2 classNameName="card-title">{element}</h2>
-            <p>Ingresar descripcion mas adelante en otra entrega</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Comprar</button>
+  <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+      <div className="card-body">
+          <h2 classNameName="card-title">{element}</h2>
+          <p>poner descripcion mas adelante</p>
+          <div className="card-actions justify-start">
+            <h3>Cantidad:</h3>
+            <Contador />
             </div>
-        </div>
-  </div>
+            <div className="card-actions justify-end">
+            <button className="btn btn-primary">Comprar</button>
+            </div>
+      </div>
+</div>
   );
 
 
@@ -25,4 +31,3 @@ function ItemListContainer(props) {
     )
 }
 export default ItemListContainer
-

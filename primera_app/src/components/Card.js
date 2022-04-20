@@ -1,4 +1,6 @@
+
 function Card({children}) {
+
     return (
 
         <div style={{border:'solid 2px blue'}}>
