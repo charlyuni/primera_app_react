@@ -1,12 +1,14 @@
 import { useState } from "react";
-const stock = 17;
 
-const Contador = () => {
+
+
+
+const Contador = ({stock}) => {
 
     const [count, setCount] = useState(0);
 
     const addHandler = () => {
-        count == stock ? setCount(count) : setCount(count + 1)
+        count >= stock ? setCount(count) : setCount(count + 1)
     }
 
     const restHandler = () => {
