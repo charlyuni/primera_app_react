@@ -8,7 +8,7 @@ function Itemslist({productos}) {
     {productos.map(element => {
         return (
             <div classNameName="card w-96 bg-base-100 shadow-xl ">
-            <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+            <figure><img src={element.thumbnailUrl} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 classNameName="card-title">{element.title}</h2>
                     <p>{element.description}</p>
