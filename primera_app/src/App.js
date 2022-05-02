@@ -1,6 +1,7 @@
 /* import logo from './logo.svg'; */
 import './App.css';
 import DaisyNavBar from './components/DaisyNavBar';
+import ItemDetailCointeiner from './components/Shop/ItemDetailContain';
 import ShopContainer from './components/Shop/ShopContainer';
 
 
@@ -8,7 +9,8 @@ function App() {
   return (
       <div className="App">
         <DaisyNavBar/>
-        <ShopContainer/>
+        <ItemDetailCointeiner id={2} />
+        <ItemDetailCointeiner id={3} />
       </div>
         
   );
