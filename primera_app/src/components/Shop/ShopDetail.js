@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Contador from "../ItemCount";
 
 
@@ -13,7 +14,7 @@ const ShopDetail = ({producto}) => {
                         <Contador stock = {producto.stock} />
                         </div>
                         <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Comprar</button>
+                        <Link to={`/productos/${producto.id}`} className="btn btn-primary">Comprar</Link>
                         </div>
                     </div>
         </div>
