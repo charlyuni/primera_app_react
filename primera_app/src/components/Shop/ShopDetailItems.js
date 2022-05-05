@@ -1,7 +1,8 @@
 import Contador from "../ItemCount";
-
+import { Link } from "react-router-dom";
 
 const ShopDetailItems = ({producto}) => {
+   
     return (
 
         <div className="card lg:card-side bg-base-100 shadow-xl">
@@ -16,7 +17,7 @@ const ShopDetailItems = ({producto}) => {
                     <Contador stock = {producto.stock} />
                     </div>
                     <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Comprar</button>
+                    <Link to={`/productos/${producto.id}`} className="btn btn-primary">Comprar</Link>
                     </div>
                 </div>
             </div>

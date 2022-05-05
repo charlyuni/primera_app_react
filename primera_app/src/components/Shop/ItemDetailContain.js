@@ -7,6 +7,7 @@ const ItemDetailCointeiner= ({id}) => {
 
     const [startproducto, setStartProducto] = useState([]);
     const {itemid} = useParams();
+    
 
     useEffect(() => {
         
