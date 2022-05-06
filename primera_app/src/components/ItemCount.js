@@ -1,9 +1,6 @@
 import { useState } from "react";
 
-
-
-
-const Contador = ({stock}) => {
+const Contador = ({stock, onAdd}) => {
 
     const [count, setCount] = useState(0);
 
@@ -19,7 +16,8 @@ const Contador = ({stock}) => {
     <>  
         <button onClick={restHandler} className='btn btn-accent btn-xs'> - </button>
         <strong>{count}</strong>
-        <button onClick={addHandler} className='btn btn-primary btn-xs'> + </button>
+        <button  onClick={addHandler} className='btn btn-primary btn-xs'> + </button>
+        <button onClick={()=> onAdd(count)} className='btn btn-primary btn-xs'> Agregar a Carrito </button>
     </>
     )
 }

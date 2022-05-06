@@ -5,6 +5,8 @@ import ShopDetailItems from "./ShopDetailItems";
 
 const ItemDetailCointeiner= ({id}) => {
 
+
+
     const [startproducto, setStartProducto] = useState([]);
     const {itemid} = useParams();
     
@@ -27,16 +29,10 @@ const ItemDetailCointeiner= ({id}) => {
                     setStartProducto(foundProducto)
                     ;       
                 })
-
         }
-
-  
   return (
-      
-        <ShopDetailItems producto={startproducto} />
-
-        
+        <ShopDetailItems producto={startproducto} /> 
         );
 
   }
-export default ItemDetailCointeiner
+export default ItemDetailCointeiner   

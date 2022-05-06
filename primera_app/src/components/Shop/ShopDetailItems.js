@@ -1,7 +1,16 @@
 import Contador from "../ItemCount";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const ShopDetailItems = ({producto}) => {
+
+    const [isInCart, setIsInCart] = useState(false); 
+
+
+    function onAdd(count){
+        console.log(`agregaste al carrito ${count}`);
+        setIsInCart(true);
+    }
    
     return (
 
@@ -14,8 +23,9 @@ const ShopDetailItems = ({producto}) => {
                     <div >$ {producto.precio}</div>
                     </div>
                     <div className="card-actions justify-start ">
-                    <Contador stock = {producto.stock} />
+                        { isInCart? <button className="btn btn-primary">Ver carrito</button> : <Contador onAdd={onAdd} stock = {producto.stock} />  }
                     </div>
+                    
                     <div className="card-actions justify-end">
                     <Link to={`/productos/${producto.id}`} className="btn btn-primary">Comprar</Link>
                     </div>
