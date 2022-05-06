@@ -23,7 +23,7 @@ const ShopDetailItems = ({producto}) => {
                     <div >$ {producto.precio}</div>
                     </div>
                     <div className="card-actions justify-start ">
-                        { isInCart? <button className="btn btn-primary">Ver carrito</button> : <Contador onAdd={onAdd} stock = {producto.stock} />  }
+                        { isInCart? <button  className="btn btn-primary">Ver carrito</button> : <Contador onAdd={onAdd} stock = {producto.stock} />  }
                     </div>
                     
                     <div className="card-actions justify-end">
