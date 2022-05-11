@@ -4,14 +4,15 @@ import DaisyNavBar from './components/DaisyNavBar';
 import ItemDetailCointeiner from './components/Shop/ItemDetailContain';
 import ShopContainer from './components/Shop/ShopContainer';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ShopDetailItems from './components/Shop/ShopDetailItems';
 import Carrousel from './components/Shop/Carrousel';
+import {CartContextProvider} from './store/CartContext';
 
 
 
 function App() {
   return (
       <div className="App">
+      <CartContextProvider>
         <BrowserRouter>
             <DaisyNavBar/>
             <Carrousel />
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/productos/:itemid" element={<ItemDetailCointeiner />}/>
             </Routes>
         </BrowserRouter>
+        </CartContextProvider>
       </div>
         
   );

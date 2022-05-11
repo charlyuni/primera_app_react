@@ -1,15 +1,18 @@
 import Contador from "../ItemCount";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useContext } from "react";
 
 const ShopDetailItems = ({producto}) => {
 
     const [isInCart, setIsInCart] = useState(false); 
 
+    const {addtoCart} = useContext();
 
     function onAdd(count){
         console.log(`agregaste al carrito ${count}`);
         setIsInCart(true);
+        addtoCart(producto, count);
     }
    
     return (

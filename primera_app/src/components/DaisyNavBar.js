@@ -1,10 +1,14 @@
 import CartWidget from "./CartWidget"
 import { Link } from "react-router-dom"
+import useCartContext from "../store/CartContext"
 
 const DaisyNavBar = () => {
 
-    return (
-        
+  const {contextFunction} = useCartContext;
+  contextFunction()
+
+  return (
+<>   
 <div class="navbar bg-base-100">
   <div class="navbar-start">
     <div class="dropdown">
@@ -26,12 +30,12 @@ const DaisyNavBar = () => {
         <Link to='/category/Calzados'>Calzados</Link>
         </ul>
       </li>
-      <li><a>Carrito</a></li>
+      <li><a href="!#">Carrito</a></li>
       </ul>
     </div>
   </div>
   <div class="navbar-center">
-    <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <a href="!#" class="btn btn-ghost normal-case text-xl">daisyUI</a>
   </div>
   <div class="navbar-end">
 
@@ -47,7 +51,7 @@ const DaisyNavBar = () => {
     </button>
   </div>
 </div>
-
+</> 
 
     )
 }
