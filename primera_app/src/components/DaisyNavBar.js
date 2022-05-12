@@ -4,7 +4,7 @@ import useCartContext from "../store/CartContext"
 
 const DaisyNavBar = () => {
 
-  const {contextFunction} = useCartContext;
+  const {contextFunction} = useCartContext();
   contextFunction()
 
   return (

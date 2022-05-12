@@ -2,14 +2,15 @@ import Contador from "../ItemCount";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
+import useCartContext from "../../store/CartContext";
 
 const ShopDetailItems = ({producto}) => {
 
     const [isInCart, setIsInCart] = useState(false); 
 
-    const {addtoCart} = useContext();
+    const {addtoCart} = useCartContext();
 
-    function onAdd(count){
+    function hanleonAdd(count){
         console.log(`agregaste al carrito ${count}`);
         setIsInCart(true);
         addtoCart(producto, count);
@@ -26,7 +27,7 @@ const ShopDetailItems = ({producto}) => {
                     <div >$ {producto.precio}</div>
                     </div>
                     <div className="card-actions justify-start ">
-                        { isInCart? <button  className="btn btn-primary">Ver carrito</button> : <Contador onAdd={onAdd} stock = {producto.stock} />  }
+                        { isInCart? <button  className="btn btn-primary">Ver carrito</button> : <Contador onAdd={hanleonAdd} stock = {producto.stock} />  }
                     </div>
                     
                     <div className="card-actions justify-end">

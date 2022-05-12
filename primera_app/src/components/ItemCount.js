@@ -17,7 +17,7 @@ const Contador = ({stock, onAdd}) => {
         <button onClick={restHandler} className='btn btn-accent btn-xs'> - </button>
         <strong>{count}</strong>
         <button  onClick={addHandler} className='btn btn-primary btn-xs'> + </button>
-        <button onClick={()=> onAdd(count)} className='btn btn-primary btn-xs'> Agregar a Carrito </button>
+        <button onClick ={()=> onAdd(count)} className='btn btn-primary btn-xs'> Agregar a Carrito </button>
     </>
     )
 }
