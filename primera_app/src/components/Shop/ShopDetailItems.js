@@ -14,8 +14,12 @@ const ShopDetailItems = ({producto}) => {
         console.log(`agregaste al carrito ${count}`);
         setIsInCart(true);
         addtoCart(producto, count);
+    };
+
+    if (producto === undefined){
+        return <h4>Cargando ...</h4>
     }
-   
+   else{
     return (
 
         <div className="card lg:card-side bg-base-100 shadow-xl">
@@ -27,7 +31,7 @@ const ShopDetailItems = ({producto}) => {
                     <div >$ {producto.precio}</div>
                     </div>
                     <div className="card-actions justify-start ">
-                        { isInCart? <button  className="btn btn-primary">Ver carrito</button> : <Contador onAdd={hanleonAdd} stock = {producto.stock} />  }
+                        { isInCart? <Link to='/cart' >Ir al Carrito</Link> : <Contador onAdd={hanleonAdd} stock = {producto.stock} />  }
                     </div>
                     
                     <div className="card-actions justify-end">
@@ -37,5 +41,6 @@ const ShopDetailItems = ({producto}) => {
             </div>
 
     )
+}
 }
 export default ShopDetailItems

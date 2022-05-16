@@ -1,22 +1,24 @@
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import useCartContext from "../store/CartContext";
 
 function CartWidget() {
+  const {cantInCart, calcPriceCart} = useCartContext();
     return (
 
-        <div class="flex-none">
-    <div class="dropdown dropdown-end">
-      <label tabindex="0" class="btn btn-ghost btn-circle">
-        <div class="indicator">
+        <div className="flex-none">
+    <div className="dropdown dropdown-end">
+      <label tabindex="0" className="btn btn-ghost btn-circle">
+        <div className="indicator">
         <div className="h-6 "><HiOutlineShoppingCart size={32}/></div>
-          <span class="badge badge-sm indicator-item">8</span>
+          <span className="badge badge-sm indicator-item">{cantInCart()} </span>
         </div>
       </label>
-      <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
-        <div class="card-body">
-          <span class="font-bold text-lg">8 Items</span>
-          <span class="text-info">Subtotal: $999</span>
-          <div class="card-actions">
-            <button class="btn btn-primary btn-block">View cart</button>
+      <div tabindex="0" className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+        <div className="card-body"> 
+          <span className="font-bold text-lg">{cantInCart()} Items</span>
+          <span className="text-info">Subtotal: {calcPriceCart()}</span>
+          <div className="card-actions">
+            <button className="btn btn-primary btn-block">View cart</button>
           </div>
         </div>
       </div>

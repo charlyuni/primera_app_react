@@ -12,6 +12,7 @@ const Contador = ({stock, onAdd}) => {
     count >= 1 ? setCount(count - 1) : setCount(0)
     }
 
+
     return (
     <>  
         <button onClick={restHandler} className='btn btn-accent btn-xs'> - </button>

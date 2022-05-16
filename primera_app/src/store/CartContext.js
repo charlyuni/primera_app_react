@@ -50,14 +50,27 @@ export function CartContextProvider({children}) {
         }
  }
 
- const cantInCart = (cart) => {
+ const cantInCart = () => {
     let cant = 0;
-    cart.forEach(element => cant += element.cant);
+    cart.forEach(element => cant += element.cant)
     return cant;
  }
-    const contextFunction = () => console.log('context listo');
+
+const calcPriceCart = () => {
+    let total = 0;
+    cart.forEach(element => total += element.precio * element.cant);
+    return total;
+}
+
+const contextFunction = () => console.log('context listo');
     return(
-        <Provider value={{contextFunction, cart, addtoCart}}>
+        <Provider value={{contextFunction,
+                            cart, 
+                            addtoCart, 
+                            removeFromCart, 
+                            clearCart, 
+                            cantInCart, 
+                            calcPriceCart}}>
             {children}
         </Provider>
     )
