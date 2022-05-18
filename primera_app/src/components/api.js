@@ -65,7 +65,7 @@ const productos = [{
     "stock": 10
 },
 {
-    "precio": 133250,
+    "precio": c,
     "id": 7,
     "title": "Celular Samsung",
     "thumbnailUrl": "../assets/img/productos/celular.png",

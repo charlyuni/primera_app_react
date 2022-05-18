@@ -59,7 +59,7 @@ export function CartContextProvider({children}) {
 const calcPriceCart = () => {
     let total = 0;
     cart.forEach(element => total += element.precio * element.cant);
-    return total;
+    return total; 
 }
 
 const contextFunction = () => console.log('context listo');

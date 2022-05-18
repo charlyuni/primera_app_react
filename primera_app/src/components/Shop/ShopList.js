@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import ShopDetail from "./ShopDetail";
 import { useParams } from "react-router-dom";
-
-
+import { getAllItems as getStartData, getItemsByCategory  } from "../../data/index";
 
 const ShopList= () => {
 
     const [startproductos, setStartProductos] = useState([]);
     const {categoryid} = useParams();
-
-   
-        
-
     useEffect(() => {
-        getStartData()
-
-   
-  
-  
+        if( categoryid === undefined) {
+        getStartData().then((respuestaPromise) => {
+            setStartProductos(respuestaPromise);
+        });
+    } else {
+        getItemsByCategory(categoryid).then((respuestaPromise) => {
+            setStartProductos(respuestaPromise);
+        });
     }
-    , [categoryid]);
+    },[categoryid]);
 
-    const getStartData = () => {
+
+    /* const getStartData = () => {
         const URL = '../../json/api.json'
             fetch(URL)
                 .then(res => res.json())        
@@ -33,7 +32,7 @@ const ShopList= () => {
                 }
                 })
                 
-        }
+        } */
   return (
       <div>
                 <div className="flex flex-wrap justify-center">

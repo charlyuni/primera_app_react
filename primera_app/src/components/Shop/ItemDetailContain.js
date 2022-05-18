@@ -1,38 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ShopDetailItems from "./ShopDetailItems";
+import {getItem as getStartData} from "../../data/index";
 
 
 const ItemDetailCointeiner= ({id}) => {
 
-
-
     const [startproducto, setStartProducto] = useState([]);
     const {itemid} = useParams();
     
-
     useEffect(() => {
-        
-        getStartData()
-        
-    }
-    , [itemid]);
+        getStartData(itemid).then(respuestaPromise => {
+            setStartProducto(respuestaPromise);
+        })
+    }, [itemid]);
 
-    const getStartData = () => {
-        const URL = '../../json/api.json'
-            fetch(URL)
-                .then(res => res.json())        
-                .then(data => {
-                    (itemid !== undefined) ? id=itemid : id=id;
-                    const foundProducto = data.find(producto => producto.id == id)
-                    console.log(startproducto)
-                    setStartProducto(foundProducto)
-                    ;       
-                })
-        }
-  return (
+return (
         <ShopDetailItems producto={startproducto} /> 
         );
 
-  }
+}
+
 export default ItemDetailCointeiner   
