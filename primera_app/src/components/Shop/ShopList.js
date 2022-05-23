@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ShopDetail from "./ShopDetail";
 import { useParams } from "react-router-dom";
-import { getAllItems as getStartData, getItemsByCategory  } from "../../data/index";
+import { getAllItems as getStartData, dataToFirebase ,getItemsByCategory  } from "../../data/index";
 
 const ShopList= () => {
 
@@ -38,6 +38,9 @@ const ShopList= () => {
                 <div className="flex flex-wrap justify-center">
                 {startproductos.map(p => <ShopDetail key={p.id} producto={p}/>)}
             </div>
+  {/*           <div>
+                <button onClick={dataToFirebase}>Guardar en Firebase</button>
+            </div> */}
        </div>
   )
 }
