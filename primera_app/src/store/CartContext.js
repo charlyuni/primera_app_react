@@ -84,7 +84,7 @@ const calcPriceCart = () => {
     return total; 
 }
 
-const contextFunction = () => console.log('');
+const contextFunction = () => null;
     return(
         <Provider value={{contextFunction,
                             cart, 

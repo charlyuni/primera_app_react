@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import useCartContext from "../../store/CartContext";
-import { createBuyOrder} from "../../data/index";
+import { createBuyOrder} from "../../data/BBDD.js";
 import Swal from "sweetalert2";
 
 

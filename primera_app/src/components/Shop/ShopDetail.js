@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Contador from "./ItemCount";
-import ShopDetailItems from "./ShopDetailItems";
 import useCartContext from "../../store/CartContext";
 
 

@@ -1,4 +1,3 @@
-/* import logo from './logo.svg'; */
 import './App.css';
 import DaisyNavBar from './components/DaisyNavBar';
 import ItemDetailCointeiner from './components/Shop/ItemDetailContain';

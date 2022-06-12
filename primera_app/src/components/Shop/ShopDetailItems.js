@@ -29,7 +29,7 @@ const ShopDetailItems = ({producto}) => {
                     <div >$ {producto.precio}</div>
                     </div>
                     <div className="card-actions justify-start ">
-                        { isInCart? <Link to='/cart' className="btn btn-primary 	" >Ir al Carrito</Link> : <Contador onAdd={hanleonAdd} stock = {producto.stock}/>  }
+                        { isInCart? <Link to='/cart' className="btn btn-primary" >Ir al Carrito</Link> : <Contador onAdd={hanleonAdd} stock = {producto.stock}/>  }
                     </div>
                     
             
