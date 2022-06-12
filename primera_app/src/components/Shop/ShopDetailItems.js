@@ -1,7 +1,6 @@
-import Contador from "../ItemCount";
+import Contador from "./ItemCount";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useContext } from "react";
 import useCartContext from "../../store/CartContext";
 
 const ShopDetailItems = ({producto}) => {
@@ -11,7 +10,6 @@ const ShopDetailItems = ({producto}) => {
     const {addtoCart} = useCartContext();
 
     function hanleonAdd(count){
-        console.log(`agregaste al carrito ${count}`);
         setIsInCart(true);
         addtoCart(producto, count);
     };
@@ -31,12 +29,10 @@ const ShopDetailItems = ({producto}) => {
                     <div >$ {producto.precio}</div>
                     </div>
                     <div className="card-actions justify-start ">
-                        { isInCart? <Link to='/cart' >Ir al Carrito</Link> : <Contador onAdd={hanleonAdd} stock = {producto.stock} />  }
+                        { isInCart? <Link to='/cart' className="btn btn-primary 	" >Ir al Carrito</Link> : <Contador onAdd={hanleonAdd} stock = {producto.stock}/>  }
                     </div>
                     
-                    <div className="card-actions justify-end">
-                    <Link to={`/productos/${producto.id}`} className="btn btn-primary">Comprar</Link>
-                    </div>
+            
                 </div>
             </div>
 

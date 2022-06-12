@@ -2,6 +2,7 @@ import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import {getFirestore, doc, Timestamp, addDoc, getDoc, setDoc, query, where, collection, getDocs} from "firebase/firestore/lite";
 import clearCart from "../store/CartContext";
+import Swal from "sweetalert2";
 
 
 const firebaseConfig = {
@@ -18,18 +19,18 @@ const firestoreDB = getFirestore(app);
 
 export default firestoreDB;
 
+
 export async function getAllItems(){
 
     const miColec = collection(firestoreDB, "productos");
-    /* getDocs(miColec).then( result => console.log(result)); */
     const productosSnap = await getDocs(miColec);
-
     return productosSnap.docs.map(doc =>{
         return{
         ...doc.data(),
         id: doc.id
         }});
 }
+
 
 export async function getItemsByCategory(categoryid){
     const miColec = collection(firestoreDB, "productos");
@@ -55,7 +56,7 @@ export async function getItem(id){
         }
 }
 
-export async function dataToFirebase(producto){
+/* export async function dataToFirebase(producto){
     const PRODUCTS = [{
         "precio": 1500,
         "title": "Botas",
@@ -181,17 +182,15 @@ export async function dataToFirebase(producto){
 
 
     PRODUCTS.forEach((item) => {     
-        // remplazar "cities" por el nombre de la coleccion
         const newItem = doc(miColec);
-
         setDoc(newItem, item).then(() => {
-          console.log("Document written with ID: ", newItem.id)})
+            console.log("Document written with ID: ", newItem.id)})
         .catch(err => {
             console.error("Error adding document: ", err);
         });
     });
 }
-
+ */
 export async function createBuyOrder(orderData){
     const buyTimestamp = Timestamp.now();
     const orderWithDate = {
@@ -200,8 +199,19 @@ export async function createBuyOrder(orderData){
     }
 
     const miColec = collection(firestoreDB, "buyOrdenes");
-    const ordenDoc = await addDoc(miColec, orderWithDate);  
-    alert(`Su compra ha sido confirmada con el numero ${ordenDoc.id}`);
+    const ordenDoc = await addDoc(miColec, orderWithDate)
+    
+
+    Swal.fire({
+        title: `Su compra ha sido confirmada con el numero ${ordenDoc.id}`,
+        icon: 'success',
+        showCancelButton: false,
+        })
+    .then(() => {
+        window.location.reload();
+    }
+    )
+    
     clearCart()
     
 }

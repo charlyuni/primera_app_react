@@ -1,4 +1,5 @@
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import useCartContext from "../store/CartContext";
 
 function CartWidget() {
@@ -18,7 +19,7 @@ function CartWidget() {
           <span className="font-bold text-lg">{cantInCart()} Items</span>
           <span className="text-info">Subtotal: {calcPriceCart()}</span>
           <div className="card-actions">
-            <button className="btn btn-primary btn-block">View cart</button>
+            <Link to='/cart' className="btn btn-primary btn-block" >Ir al Carrito</Link>
           </div>
         </div>
       </div>

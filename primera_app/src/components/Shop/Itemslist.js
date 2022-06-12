@@ -14,10 +14,10 @@ function Itemslist({productos}) {
                     <p>{element.description}</p>
                     <div className="card-actions justify-start">
                     <h3>Cantidad:</h3>
-                    <Contador stock = {element.stock} />
+                    <Contador stock = {element.stock}   />
                     </div>
                     <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Comprar</button>
+                    <button className="btn btn-primary">Ver detalle</button>
                     </div>
             </div>
             </div>

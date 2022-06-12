@@ -4,7 +4,6 @@ const CartContext = createContext();
 const useCartContext = () => useContext(CartContext); 
 const {Provider} = CartContext;
 
-    
 
 export function CartContextProvider({children}) {
     const [cart, setCart] = useState([]); 
@@ -37,6 +36,29 @@ export function CartContextProvider({children}) {
         setCart(cartFilter);
     }
 
+    const agregaItems = (id) => {
+        const newCart = [...cart]
+        const cartAgrega = newCart.map(item => {
+            if( item.id == id){
+                item.stock == item.cant ? item.cant = item.stock : item.cant += 1
+            }
+        
+        });
+        setCart(newCart);
+    }
+
+    const restaItems = (id) => {
+        const newCart = [...cart]
+        const cartAgrega = newCart.map(item => {
+            if( item.id == id){
+                item.cant <= 1 ? item.cant = 1 : item.cant = item.cant - 1
+            } 
+        
+        });
+        setCart(newCart);
+    }
+
+
     const clearCart = () => {
         setCart([]);
      }
@@ -62,14 +84,16 @@ const calcPriceCart = () => {
     return total; 
 }
 
-const contextFunction = () => console.log('context listo');
+const contextFunction = () => console.log('');
     return(
         <Provider value={{contextFunction,
                             cart, 
                             addtoCart, 
                             removeFromCart, 
                             clearCart, 
-                            cantInCart, 
+                            cantInCart,
+                            restaItems,
+                            agregaItems, 
                             calcPriceCart}}>
             {children}
         </Provider>

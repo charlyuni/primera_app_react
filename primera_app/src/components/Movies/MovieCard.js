@@ -17,7 +17,7 @@ function MovieCard({movies}) {
         <div>{duration}</div>
         <Contador/>
         <div className="card-actions justify-end">
-        <button className="btn btn-primary">Comprar</button>
+        <button className="btn btn-primary">Ver</button>
         </div>
     </div>
     </div>
